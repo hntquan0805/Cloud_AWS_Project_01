@@ -7,3 +7,4 @@ Phân chia theo đúng cấu trúc MVC.
 Database đang trong quá trình làm.
 File .env không được push lên github, nó sẽ cảnh báo và không biết sửa.
 Push file .env.example, sau khi pull về paste qua file .env local.
+Chạy chương trình bằng CMD, lệnh 'npm start'.
