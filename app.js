@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import configViewEngine from './config/viewEngine';
 import initWebRoutes from './routes/home';
 import initBlogList from './routes/blog_list';
+import initBlogDetail from './routes/blog_detail';
 require('dotenv').config();
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(express.json());
 configViewEngine(app);
 initWebRoutes(app);
 initBlogList(app);
+initBlogDetail(app);
 
 const PORT = process.env.PORT || 10000;
 

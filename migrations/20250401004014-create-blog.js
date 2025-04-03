@@ -9,6 +9,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      author: {
+        type: Sequelize.STRING
+      },
       title: {
         type: Sequelize.STRING
       },
@@ -17,6 +20,9 @@ module.exports = {
       },
       date: {
         type: Sequelize.DATE
+      },
+      tag: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
