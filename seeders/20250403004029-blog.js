@@ -9,7 +9,9 @@ module.exports = {
         author: 'Admin',
         title: 'A Sample Blog Title',
         content: '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>',
-        date: '2025-12-14',
+        day: '14',
+        month: '02',
+        year: '2024',
         tag: 'HTML, CSS, JavaScript',
         createdAt: new Date(),
         updatedAt: new Date() 
@@ -19,7 +21,9 @@ module.exports = {
         author: 'Admin',
         title: 'Another Sample Blog Title',
         content: '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>',
-        date: '2024-02-14',
+        day: '10',
+        month: '03',
+        year: '2023',
         tag: 'HTML, CoffeeScript',
         createdAt: new Date(),
         updatedAt: new Date() 
@@ -29,18 +33,10 @@ module.exports = {
         author: 'Admin',
         title: 'Another of another Sample Blog Title',
         content: '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>',
-        date: '2025-12-14',
+        day: '02',
+        month: '01',
+        year: '2021',
         tag: 'PHP, CSS, Grunt',
-        createdAt: new Date(),
-        updatedAt: new Date() 
-      },
-      { 
-        id: 4,
-        author: 'Admin',
-        title: 'Tired Sample Blog Title',
-        content: '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>',
-        date: '2025-12-14',
-        tag: 'HTML, jQuery, Ruby',
         createdAt: new Date(),
         updatedAt: new Date() 
       }

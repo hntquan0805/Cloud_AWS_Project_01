@@ -18,8 +18,14 @@ module.exports = {
       content: {
         type: Sequelize.TEXT
       },
-      date: {
-        type: Sequelize.DATE
+      day: {
+        type: Sequelize.INTEGER
+      },
+      month: {
+        type: Sequelize.INTEGER
+      },
+      year: {
+        type: Sequelize.INTEGER
       },
       tag: {
         type: Sequelize.STRING
