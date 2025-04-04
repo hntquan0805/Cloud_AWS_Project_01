@@ -7,6 +7,8 @@ let initBlog = (app) => {
 
     router.get('/filter', blogController.filterBlogsApi);
 
+    router.get('/tag', blogController.tagBlogsApi);
+
     return app.use("/blog", router);
 }
 

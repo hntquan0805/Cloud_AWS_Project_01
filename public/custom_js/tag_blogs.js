@@ -1,22 +1,20 @@
 $(document).ready(function () {
-    $('#filterForm').on('submit', function (e) {
+    $('.tag-click').click(function (e) {
         e.preventDefault();
 
-        let day = $('#day').val();
-        let month = $('#month').val();
-        let year = $('#year').val();
-
+        let tag = $(this).data('tag');
+        
         $.ajax({
-            url: 'blog/filter',
+            url: 'blog/tag',
             method: 'GET',
-            data: { day, month, year },
+            data: {tag},
             success: function (response) {
                 if (response.success) {
                     let blogsHtml = '';
                     response.data.forEach(blog => {
                         let tagsHtml = '';
-                        blog.tag.split(', ').forEach(tag => {
-                            tagsHtml += `<a href="javascript:void(0)" class="blog-tag">${tag}</a> `;
+                        blog.tag.split(', ').forEach(ltag => {
+                            tagsHtml += `<a href="javascript:void(0)" class="blog-tag">${ltag}</a> `;
                         });
                         blogsHtml += `
                                     <div class="blog-post">
@@ -50,7 +48,7 @@ $(document).ready(function () {
                                             <div class="clearfix"></div>
                                             <div class="blog-post-body row margin-top-15">
                                                 <div class="col-md-5">
-                                                    <img class="pull-left" src="img/blog/image1.jpg" alt="thumb1">
+                                                    <img class="pull-left" src="img/blog/image${blog.id}.jpg" alt="thumb${blog.id}">
                                                 </div>
                                                 <div class="col-md-7">
                                                     ${blog.content}
