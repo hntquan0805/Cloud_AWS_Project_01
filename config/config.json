@@ -1,12 +1,13 @@
 {
   "development": {
-    "username": "admin",
-    "password": "cloud123456_654321",
+    "username": "root",
+    "password": "123456",
     "database": "mydata",
-    "host": "mydatasql.cp0qmkui4pxw.ap-southeast-2.rds.amazonaws.com",
+    "host": "127.0.0.1",
     "port": 3306,
     "dialect": "mysql"
   },
+
   "test": {
     "username": "root",
     "password": null,
