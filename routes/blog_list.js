@@ -9,6 +9,12 @@ let initBlog = (app) => {
 
     router.get('/tag', blogController.tagBlogsApi);
 
+    router.get('/create',blogController.createBlogsApi);
+
+    router.post('/post-createPost', blogController.postCreatePostApi);
+
+    router.get('/delete-post', blogController.deletePostApi);
+
     return app.use("/blog", router);
 }
 

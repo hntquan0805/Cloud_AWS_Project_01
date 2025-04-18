@@ -20,6 +20,7 @@
         <!-- Google Fonts-->
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open Sans:300,400" />
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Source Sans Pro:300,400" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     </head>
     <body>
         <div id="body_bg">
@@ -28,30 +29,12 @@
                     <div class="container">
                         <!-- === BEGIN CONTENT === -->
                         <div class="row margin-vert-30">
-                            <!-- Filter -->
-                            <form class="col-md-9 p-3 border rounded bg-light" id="filterForm">
-                                <div class="row g-3">
-                                    <div class="col-md-4">
-                                        <label for="day" class="form-label">Day:</label>
-                                        <input type="number" id="day" name="day" class="form-control" min="1" max="31">
-                                    </div>
+                            <div class="col-md-9 create-new-post-button">
+                                <a href="/blog/create" class="btn btn-primary">
+                                    Create New Post
+                                </a>
+                            </div>
                             
-                                    <div class="col-md-4">
-                                        <label for="month" class="form-label">Month:</label>
-                                        <input type="number" id="month" name="month" class="form-control" min="1" max="12">
-                                    </div>
-                            
-                                    <div class="col-md-4">
-                                        <label for="year" class="form-label">Year:</label>
-                                        <input type="number" id="year" name="year" class="form-control" min="2000" max="2100">
-                                    </div>
-                            
-                                    <div class="col-12 text-end">
-                                        <button class="btn btn-primary margin-top-15 margin-start-15" type="submit">Filter</button>
-                                    </div>
-                                </div>
-                            </form>                            
-                            <!-- End Filter -->
                             <!-- Main Column -->
                             <div class="col-md-9 margin-top-20" id="blogList">
                                 <% blogs.forEach(blog => { %>
@@ -114,15 +97,18 @@
                                                         <hr>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <!-- Read More -->
-                                                        <div class="blog-post-details-item blog-post-details-item-right pull-right">
-                                                            <a href="blog_detail" class="btn btn-primary">
+                                                        <div class="blog-post-details-item blog-post-details-item-right pull-right" style="display: flex; gap: 10px; align-items: center;">
+                                                            <a href="blog_detail" class="btn btn-primary d-flex align-items-center">
                                                                 Read More
-                                                                <i class="icon-chevron-right readmore-icon"></i>
+                                                                <i class="icon-chevron-right readmore-icon" style="margin-left: 5px;"></i>
+                                                            </a>
+                                                    
+                                                            <a href="/blog/delete-post?id=<%= blog.id %>" class="delete-button">
+                                                                <i class="fa-solid fa-trash trash-icon"></i>
                                                             </a>
                                                         </div>
                                                         <!-- End Read More -->
-                                                    </div>
+                                                    </div> 
                                                 </div>
                                             </div>
                                         </div>
@@ -134,6 +120,30 @@
                             <!-- End Main Column -->
                             <!-- Side Column -->
                             <div class="col-md-3 margin-top-30">
+                                <!-- Filter -->
+                                <form class="p-3 border rounded bg-light" id="filterForm">
+                                    <h3 class="mb-3">Filter</h3>
+                                
+                                    <div class="mb-3 row">
+                                        <div class="col-md-4 col-sm-10 form-padding">
+                                            <input type="number" id="day" name="day" class="form-control control-filter-form" min="1" max="31" placeholder="Day">
+                                        </div>
+
+                                        <div class="col-md-4 col-sm-10 form-padding">
+                                            <input type="number" id="month" name="month" class="form-control control-filter-form" min="1" max="12" placeholder="Month">
+                                        </div>
+
+                                        <div class="col-md-4 col-sm-10 form-padding">
+                                            <input type="number" id="year" name="year" class="form-control control-filter-form" min="2000" max="2100" placeholder="Year">
+                                        </div>
+                                    </div>
+                                
+                                    <div class="text-end filter-button-block">
+                                        <button class="btn btn-primary filter-button-title" type="submit">Filter</button>
+                                    </div>
+                                </form>
+                                <!-- End Filter -->
+
                                 <!-- Blog Tags -->
                                 <div class="blog-tags">
                                     <h3>Tags</h3>
@@ -238,6 +248,45 @@
             <!-- Include Footer -->
             <%- include('partials/footer') %>
         </div>
+        <style>
+            .create-new-post-button{
+                text-align: right;
+                margin-top: 10px;
+            }
+
+            .control-filter-form{
+                padding: 3px;
+                margin: 5px 0px;
+                height: 30px;       
+            }
+
+            .control-filter-form::placeholder{
+                font-size: 12px;
+                color: #757b81d4;
+            }
+
+            .filter-button-block{
+                text-align: right;
+                margin-bottom: 20px;
+            }
+
+            .filter-button-title{
+                margin-top: 7px;
+                margin-bottom: 20px;
+                padding: 2px 12px;
+            }
+
+            .delete-button {
+                padding: 0px;
+            }
+
+            .trash-icon {
+                padding: 0px;
+                font-size: 20px;
+                color: #9e91ab;
+            }
+
+        </style>
         <!-- JS -->
         <script type="text/javascript" src="js/jquery.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="js/bootstrap.min.js" type="text/javascript"></script>

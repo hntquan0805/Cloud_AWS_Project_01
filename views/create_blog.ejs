@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Create New Blog</title>
+        <!-- Meta -->
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <!-- Favicon -->
+        <link href="favicon.ico" rel="shortcut icon">
+        <!-- Bootstrap Core CSS -->
+        <link rel="stylesheet" href="/css/bootstrap.css" rel="stylesheet">
+        <!-- Template CSS -->
+        <link rel="stylesheet" href="/css/animate.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/nexus.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/responsive.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/custom.css" rel="stylesheet">
+        <!-- Google Fonts-->
+        <link rel="stylesheet" type="/text/css" href="http://fonts.googleapis.com/css?family=Open Sans:300,400" />
+        <link rel="stylesheet" type="/text/css" href="http://fonts.googleapis.com/css?family=Source Sans Pro:300,400" />
+    </head>
+    <body>
+        <div id="body_bg">
+            <!-- Include Header -->
+            <%- include('partials/header') %>
+                    <div class="container">
+                        <!-- === BEGIN CONTENT === -->
+                        <div class="row margin-vert-30">
+                            <!-- Main Column -->
+                            <div class="col-md-9 margin-top-20" id="blogList">
+                                <div class="col-md-12 p-3 create-form-header">
+                                    <div class="create-form-header-title">NEW POST</div>
+                                </div>
+
+                                <form action = "/blog/post-createPost" method="POST" class="col-md-12 p-3 border rounded bg-light" id="createForm">
+                                    <div class="mb-3">
+                                        <label for="inputAuthor" class="form-label">Author</label>
+                                        <input type="text" id="author" name = "author" class="form-control" required>
+                                    </div>
+                        
+                                    <div class="mb-3">
+                                        <label for="inputTitle" class="form-label">Title</label>
+                                        <input type="text" id="title" name = "title" class="form-control" required>
+                                    </div>
+                        
+                                    <div class="mb-3">
+                                        <label for="inputContent" class="form-label">Content</label>
+                                        <textarea id="content" name = "content" class="form-control" rows="14"  required style="resize: none;"></textarea>
+                                    </div>
+
+                                    <div class="row g-3">
+                                        <div class="col-md-4">
+                                            <label for="inputDay" class="form-label">Day</label>
+                                            <input type="number" id="day" name="day" class="form-control" min="1" max="31">
+                                        </div>
+                                
+                                        <div class="col-md-4">
+                                            <label for="inputMonth" class="form-label">Month</label>
+                                            <input type="number" id="month" name="month" class="form-control" min="1" max="12">
+                                        </div>
+                                
+                                        <div class="col-md-4">
+                                            <label for="inputYear" class="form-label">Year</label>
+                                            <input type="number" id="year" name="year" class="form-control" min="2000" max="2100">
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="inputTag" class="form-label">Tag</label>
+                                        <select name = "tag" class = "form-control">
+                                            <option value="HTML">HTML</option>
+                                            <option value="CSS">CSS</option>
+                                            <option value="JavaScript">JavaScript</option>
+                                            <option value="jQuery">jQuery</option>
+                                            <option value="PHP">PHP</option>
+                                            <option value="Ruby">Ruby</option>
+                                            <option value="CoffeeScript">CoffeeScript</option>
+                                            <option value="Grunt">Grunt</option>
+                                            <option value="Bootstrap">Bootstrap</option>
+                                            <option value="HTML5">HTML5</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-12 text-end margin-top-20 align-post-button">
+                                        <button class="btn btn-primary post-button" type="submit">Post</button>
+                                    </div>
+                                </form>   
+                            </div>
+                            <!-- End Main Column -->
+
+                            <!-- Side Column -->
+                            <div class="col-md-3 margin-top-30">
+                                <!-- Blog Tags -->
+                                <div class="blog-tags">
+                                    <h3>Tags</h3>
+                                    <ul class="blog-tags">
+                                        <li>
+                                            <a href="javascript:void(0)" class="blog-tag tag-click" data-tag="HTML">HTML</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" class="blog-tag tag-click" data-tag="CSS">CSS</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" class="blog-tag tag-click" data-tag="JavaScript">JavaScript</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" class="blog-tag tag-click" data-tag="jQuery">jQuery</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" class="blog-tag tag-click" data-tag="PHP">PHP</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" class="blog-tag tag-click" data-tag="Ruby">Ruby</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" class="blog-tag tag-click" data-tag="CoffeeScript">CoffeeScript</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" class="blog-tag tag-click" data-tag="Grunt">Grunt</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" class="blog-tag tag-click" data-tag="Bootstrap">Bootstrap</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)" class="blog-tag tag-click" data-tag="HTML5">HTML5</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- End Blog Tags -->
+                                <!-- Recent Posts -->
+                                <div class="recent-posts">
+                                    <h3>Recent Posts</h3>
+                                    <ul class="posts-list margin-top-10">
+                                        <li>
+                                            <div class="recent-post">
+                                                <a href="javascript:void(0)">
+                                                    <img class="pull-left" src="/img/blog/thumbs/thumb1.jpg" alt="thumb1">
+                                                </a>
+                                                <a href="#" class="posts-list-title">Sidebar post example</a>
+                                                <br>
+                                                <span class="recent-post-date">
+                                                    July 30, 2013
+                                                </span>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </li>
+                                        <li>
+                                            <div class="recent-post">
+                                                <a href="javascript:void(0)">
+                                                    <img class="pull-left" src="/img/blog/thumbs/thumb2.jpg" alt="thumb2">
+                                                </a>
+                                                <a href="javascript:void(0)" class="posts-list-title">Sidebar post example</a>
+                                                <br>
+                                                <span class="recent-post-date">
+                                                    July 30, 2013
+                                                </span>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </li>
+                                        <li>
+                                            <div class="recent-post">
+                                                <a href="javascript:void(0)">
+                                                    <img class="pull-left" src="/img/blog/thumbs/thumb3.jpg" alt="thumb3">
+                                                </a>
+                                                <a href="javascript:void(0)" class="posts-list-title">Sidebar post example</a>
+                                                <br>
+                                                <span class="recent-post-date">
+                                                    July 30, 2013
+                                                </span>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </li>
+                                        <li>
+                                            <div class="recent-post">
+                                                <a href="javascript:void(0)">
+                                                    <img class="pull-left" src="/img/blog/thumbs/thumb4.jpg" alt="thumb4">
+                                                </a>
+                                                <a href="javascript:void(0)" class="posts-list-title">Sidebar post example</a>
+                                                <br>
+                                                <span class="recent-post-date">
+                                                    July 30, 2013
+                                                </span>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- End Recent Posts -->
+                            </div>
+                            <!-- End Side Column -->
+                        </div>
+                        <!-- === END CONTENT === -->
+                    </div>
+            <!-- Include Footer -->
+            <%- include('partials/footer') %>
+        </div>
+
+        <style>
+            .create-form-block{
+                border: 10px #6e5f7c;
+            }
+
+            .create-form-header{
+                margin-bottom: 10px;
+                font-size: 2.3rem;
+                font-weight: bold;
+                text-align: center;
+                border: 1px #6e5f7c;
+            }
+
+            .create-form-header-title{
+                padding: 10px;
+                border-radius: 5px;
+                background-color: #6e5f7c;
+                border: 1px #6e5f7c;
+                color: white;
+
+            }
+            .form-label{
+                font-size: 14px;
+                margin-left: 5px;
+                margin-top: 7px;
+                margin-bottom: 0px;
+            }
+
+            .form-control{
+                border: #9e91ab solid 1px;
+            }
+
+            .align-post-button{
+                text-align: right;
+            }
+
+            .post-button {
+                padding: 7px 45px;
+                font-size: 15px;
+            }
+        </style>
+
+        <!-- JS -->
+        <script type="text/javascript" src="/js/jquery.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="/js/scripts.js"></script>
+        <script type="text/javascript" src="/custom_js/filter_blogs.js" type="text/javascript"></script>
+        <script type="text/javascript" src="/custom_js/tag_blogs.js" type="text/javascript"></script>
+        <!-- Isotope - Portfolio Sorting -->
+        <script type="text/javascript" src="/js/jquery.isotope.js" type="text/javascript"></script>
+        <!-- Mobile Menu - Slicknav -->
+        <script type="text/javascript" src="/js/jquery.slicknav.js" type="text/javascript"></script>
+        <!-- Animate on Scroll-->
+        <script type="text/javascript" src="/js/jquery.visible.js" charset="utf-8"></script>
+        <!-- Modernizr -->
+        <script src="/js/modernizr.custom.js" type="text/javascript"></script>
+        <!-- End JS -->
+    </body>
+</html>

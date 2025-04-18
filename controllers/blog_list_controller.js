@@ -1,5 +1,6 @@
 import db from '../models/index';
 import { Op, where } from 'sequelize';
+import CRUDService from '../services/CRUDService'
 
 let getAllBlogs = async (req, res) => {
     try {
@@ -92,8 +93,38 @@ let tagBlogsApi = async (req, res) => {
     }
 }
 
+let createBlogsApi = (req, res) => {
+    return res.render('create_blog.ejs');
+}
+
+let postCreatePostApi = async (req, res) => {
+    try {
+        let message = await CRUDService.createNewPost(req.body);
+        console.log("New post created:", message);
+        return res.redirect('/blog');
+    } catch (error) {
+        console.error("Error creating post:", error);
+        return res.status(500).send("Internal Server Error");
+    }
+}
+
+let deletePostApi = async (req, res) => {
+    let id = req.query.id;
+    if (id) {
+        await CRUDService.deletePostByID(id);
+        return res.redirect('/blog');
+    }
+    else {
+        return res.send('Post not found!');
+    }
+    
+}
+
 export default {
     getAllBlogs,
     filterBlogsApi,
-    tagBlogsApi
+    tagBlogsApi,
+    createBlogsApi,
+    postCreatePostApi,
+    deletePostApi,
 };
