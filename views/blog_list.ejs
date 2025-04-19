@@ -1,70 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Travel Blog</title>
-        <!-- Meta -->
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <!-- Favicon -->
-        <link href="favicon.ico" rel="shortcut icon">
-        <!-- Bootstrap Core CSS -->
-        <link rel="stylesheet" href="css/bootstrap.css" rel="stylesheet">
-        <!-- Template CSS -->
-        <link rel="stylesheet" href="css/animate.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/font-awesome.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/nexus.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/responsive.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/custom.css" rel="stylesheet">
-        <!-- Google Fonts-->
-        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open Sans:300,400" />
-        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Source Sans Pro:300,400" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    </head>
-    <body>
-        <div id="body_bg">
-            <!-- Include Header -->
-            <%- include('partials/header') %>
-                    <div class="container">
-                        <!-- === BEGIN CONTENT === -->
-                        <div class="row margin-vert-30">
-                            <div class="col-md-9 create-new-post-button">
-                                <a href="/blog/create" class="btn btn-primary">
-                                    Create New Post
-                                </a>
-                            </div>
-                            
-                            <!-- Main Column -->
-                            <div class="col-md-9 margin-top-20" id="blogList">
-                                <% blogs.forEach(blog => { %>
-                                    <!-- Blog Post -->
-                                    <div class="blog-post">
-                                        <!-- Blog Item Header -->
-                                        <div class="blog-item-header">
-                                            <!-- Date -->
-                                            <div class="blog-post-date pull-left">
-                                                <span class="day"><%= blog.day %></span>
-                                                <span class="month"><%= blog.month %></span>
-                                            </div>
-                                            <!-- End Date -->
-                                            <!-- Title -->
-                                            <h2>
-                                                <a href="javascript:void(0)">
-                                                    <%= blog.title %></a>
-                                            </h2>
-                                            <!-- End Title -->
-                                            <div class="blog-post-details">
-                                                <!-- Author Name -->
-                                                <div class="blog-post-details-item blog-post-details-item-left user-icon">
-                                                    <i class="fa fa-user"></i>
-                                                    <a href="javascript:void(0)"><%= blog.author %></a>
-                                                </div>
-                                                <!-- End Author Name -->
-                                                <!-- Tags -->
-                                                <div class="blog-post-details-item blog-post-details-item-left blog-post-details-tags tags-icon">
-                                                    <i class="fa fa-tag"></i>
-                                                    <% blog.tag.split(', ').forEach(tag => { %>
+
+<head>
+    <title>Travel Blog</title>
+    <!-- Meta -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!-- Favicon -->
+    <link href="favicon.ico" rel="shortcut icon">
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="css/animate.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/nexus.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/custom.css" rel="stylesheet">
+    <!-- Google Fonts-->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open Sans:300,400" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Source Sans Pro:300,400" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <div id="body_bg">
+        <!-- Include Header -->
+        <%- include('partials/header') %>
+            <div class="container">
+                <!-- === BEGIN CONTENT === -->
+                <div class="row margin-vert-30">
+                    <div class="col-md-9 create-new-post-button">
+                        <a href="/blog/create" class="btn btn-primary">
+                            Create New Post
+                        </a>
+                    </div>
+
+                    <!-- Main Column -->
+                    <div class="col-md-9 margin-top-20" id="blogList">
+                        <% blogs.forEach(blog=> { %>
+                            <!-- Blog Post -->
+                            <div class="blog-post">
+                                <!-- Blog Item Header -->
+                                <div class="blog-item-header">
+                                    <!-- Date -->
+                                    <div class="blog-post-date pull-left">
+                                        <span class="day">
+                                            <%= blog.day %>
+                                        </span>
+                                        <span class="month">
+                                            <%= blog.month %>
+                                        </span>
+                                    </div>
+                                    <!-- End Date -->
+                                    <!-- Title -->
+                                    <h2>
+                                        <a href="javascript:void(0)">
+                                            <%= blog.title %>
+                                        </a>
+                                    </h2>
+                                    <!-- End Title -->
+                                    <div class="blog-post-details">
+                                        <!-- Author Name -->
+                                        <div class="blog-post-details-item blog-post-details-item-left user-icon">
+                                            <i class="fa fa-user"></i>
+                                            <a href="javascript:void(0)">
+                                                <%= blog.author %>
+                                            </a>
+                                        </div>
+                                        <!-- End Author Name -->
+                                        <!-- Tags -->
+                                        <div
+                                            class="blog-post-details-item blog-post-details-item-left blog-post-details-tags tags-icon">
+                                            <i class="fa fa-tag"></i>
+                                            <% blog.tag.split(', ').forEach(tag => { %>
                                                         <a href="javascript:void(0)" class="blog-tag"><%= tag %></a>
                                                     <% }) %>
                                                 </div>
@@ -97,10 +107,13 @@
                                                         <hr>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <div class="blog-post-details-item blog-post-details-item-right pull-right" style="display: flex; gap: 10px; align-items: center;">
+                                                        <div class="blog-post-details-item blog-post-details-item-right pull-right" style="display: flex; gap: 5px; align-items: center;">
                                                             <a href="blog_detail" class="btn btn-primary d-flex align-items-center">
                                                                 Read More
-                                                                <i class="icon-chevron-right readmore-icon" style="margin-left: 5px;"></i>
+                                                            </a>
+                                                            
+                                                            <a href="/blog/edit-post?id=<%= blog.id %>" class="edit-button">
+                                                                <i class="fa-solid fa-pen edit-icon"></i>
                                                             </a>
                                                     
                                                             <a href="/blog/delete-post?id=<%= blog.id %>" class="delete-button">
@@ -249,58 +262,84 @@
             <%- include('partials/footer') %>
         </div>
         <style>
-            .create-new-post-button{
+            .create-new-post-button {
                 text-align: left;
                 margin-top: 10px;
             }
 
-            .control-filter-form{
+            .control-filter-form {
                 padding: 3px;
                 margin: 5px 0px;
-                height: 30px;       
+                height: 30px;
             }
 
-            .control-filter-form::placeholder{
+            .control-filter-form::placeholder {
                 font-size: 12px;
                 color: #757b81d4;
             }
 
-            .filter-button-block{
+            .filter-button-block {
                 text-align: right;
                 margin-bottom: 20px;
             }
 
-            .filter-button-title{
+            .filter-button-title {
                 margin-top: 7px;
                 margin-bottom: 20px;
                 padding: 2px 12px;
             }
 
+            .trash-icon::before,
+            .edit-icon::before {
+            padding-right: 0 !important;
+            }
+
+            .edit-button i,
+            .delete-button i {
+            font-size: 16px;
+            padding: 6px;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            }
+
+            .edit-button i:hover {
+            background: #e0f0ff;
+            }
+
+            .delete-button i:hover {
+            background: #ffe0e0;
+            }
+
+            /* .edit-button,
             .delete-button {
-                padding: 0px;
-            }
-
-            .trash-icon {
-                padding: 0px;
-                font-size: 20px;
-                color: #9e91ab;
-            }
-
+            display: inline-block;
+            } */
         </style>
         <!-- JS -->
-        <script type="text/javascript" src="js/jquery.min.js" type="text/javascript"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="js/jquery.min.js"
+            type="text/javascript"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"
+            type="text/javascript"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
-        <script type="text/javascript" src="custom_js/filter_blogs.js" type="text/javascript"></script>
-        <script type="text/javascript" src="custom_js/tag_blogs.js" type="text/javascript"></script>
+        <script type="text/javascript" src="custom_js/filter_blogs.js"
+            type="text/javascript"></script>
+        <script type="text/javascript" src="custom_js/tag_blogs.js"
+            type="text/javascript"></script>
         <!-- Isotope - Portfolio Sorting -->
-        <script type="text/javascript" src="js/jquery.isotope.js" type="text/javascript"></script>
+        <script type="text/javascript" src="js/jquery.isotope.js"
+            type="text/javascript"></script>
         <!-- Mobile Menu - Slicknav -->
-        <script type="text/javascript" src="js/jquery.slicknav.js" type="text/javascript"></script>
+        <script type="text/javascript" src="js/jquery.slicknav.js"
+            type="text/javascript"></script>
         <!-- Animate on Scroll-->
-        <script type="text/javascript" src="js/jquery.visible.js" charset="utf-8"></script>
+        <script type="text/javascript" src="js/jquery.visible.js"
+            charset="utf-8"></script>
         <!-- Modernizr -->
         <script src="js/modernizr.custom.js" type="text/javascript"></script>
         <!-- End JS -->
-    </body>
+</body>
+
 </html>

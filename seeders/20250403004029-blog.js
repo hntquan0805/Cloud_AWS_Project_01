@@ -36,7 +36,7 @@ module.exports = {
         day: '02',
         month: '01',
         year: '2021',
-        tag: 'PHP, CSS, Grunt',
+        tag: 'Culture',
         createdAt: new Date(),
         updatedAt: new Date() 
       }

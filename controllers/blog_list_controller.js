@@ -108,6 +108,30 @@ let postCreatePostApi = async (req, res) => {
     }
 }
 
+let editPostApi = async(req, res) => {
+    let postID = req.query.id;
+    if(postID) {
+        let postData = await CRUDService.getPostByID(postID);
+        return res.render('edit_blog.ejs', {
+            post: postData
+        })
+    }
+    else {
+        return res.send('Post not found!');
+    }
+}
+
+let saveEditedPostApi = async (req, res) => {
+    try{
+        let editedPostData = req.body;
+        await CRUDService.updatePostData(editedPostData);
+        return res.redirect('/blog');
+    } catch(error) {
+        console.error("Error editing post:", error);
+        return res.status(500).send("Internal Server Error");
+    }
+}
+
 let deletePostApi = async (req, res) => {
     let id = req.query.id;
     if (id) {
@@ -126,5 +150,7 @@ export default {
     tagBlogsApi,
     createBlogsApi,
     postCreatePostApi,
-    deletePostApi,
+    editPostApi,
+    saveEditedPostApi,
+    deletePostApi
 };

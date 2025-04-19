@@ -13,6 +13,10 @@ let initBlog = (app) => {
 
     router.post('/post-createPost', blogController.postCreatePostApi);
 
+    router.get('/edit-post', blogController.editPostApi);
+
+    router.post('/save-post', blogController.saveEditedPostApi);
+
     router.get('/delete-post', blogController.deletePostApi);
 
     return app.use("/blog", router);

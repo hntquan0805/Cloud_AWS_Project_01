@@ -23,6 +23,52 @@ let createNewPost = async (data) => {
     })
 }
 
+let getPostByID = (postID) => {
+    return new Promise(async (resolve, reject) => {
+        try{
+            let post = await db.blog.findOne ({
+                where: {id: postID},
+                raw: true
+            })
+
+            if(post){
+                resolve(post);
+            }
+            else{
+                resolve({});
+            }
+        } catch(e) {
+            reject (e);
+        }
+    })
+}
+
+let updatePostData = async (editedPostData) => {
+    return new Promise (async (resolve, reject) => {
+        try {
+            let post = await db.blog.findOne ({
+                where: {id: editedPostData.id}
+            })
+
+            if (post){
+                post.title = editedPostData.title;
+                post.content = editedPostData.content;
+                post.tag = editedPostData.tag;
+                post.day = editedPostData.day;
+                post.month = editedPostData.month;
+                post.year = editedPostData.year;
+                
+                await post.save();
+                resolve();
+            } else {
+                resolve();
+            }    
+        } catch(e) {
+            reject(e);
+        }
+    })
+}
+
 let deletePostByID = (postID) => {
     return new Promise(async(resolve, reject) => {
         try {
@@ -43,5 +89,7 @@ let deletePostByID = (postID) => {
 
 module.exports = {
     createNewPost,
+    getPostByID,
+    updatePostData,
     deletePostByID,
 }
