@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "admin",
-    "password": "quynguyen2308",
-    "database": "mydata",
-    "host": "database-1.cp0qmkui4pxw.ap-southeast-2.rds.amazonaws.com",
+    "password": "1234567890",
+    "database": "db-project01",
+    "host": "db-project01.cp0qmkui4pxw.ap-southeast-2.rds.amazonaws.com",
     "port": 3306,
     "dialect": "mysql"
   },
